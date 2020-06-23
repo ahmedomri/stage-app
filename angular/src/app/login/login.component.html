@@ -1,34 +1,60 @@
 
 
-	<img class="wave" src="../../assets/wave.png">
+<img class="wave" src="../../assets/wave.png">
 	<div class="container">
 		<div class="img">
 			<img src="../../assets/bg.svg">
 		</div>
+		
 		<div class="login-content">
-			<form  #myform = "ngForm" (ngSubmit) = "onSubmit(myform)">
+			<form [formGroup]="ngform"  #myform = "ngForm" (ngSubmit) = "onSubmit(myform)">
 				<img src="../../assets/avatar.svg">
 				<h2 class="title">Welcome</h2>
            		<div class="input-div one">
            		   <div class="i">
-           		   		<i class="fas fa-user"></i>
+							  <i class="fas fa-user"></i>
+							  
+							  <i><span class="tooltip" *ngIf="ngform.controls.username.invalid">
+									<svg    class="bi bi-info-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+										
+									</svg>
+								<span class="tooltiptext">username required</span>
+								</span></i>
+							
+								
+								  
+							  
            		   </div>
            		   <div class="div">
            		   		
-           		   		<input  type="text" class="input"  placeholder="Username" name="username" [(ngModel)]="username">
-           		   </div>
-           		</div>
+           		   		<input  type="text" formControlName="username"  class="input"  placeholder="Username" name="username" >
+							  
+							  
+							  
+					</div>
+					  
+				   </div>
+				   
            		<div class="input-div pass">
            		   <div class="i"> 
-           		    	<i class="fas fa-lock"></i>
+						   <i class="fas fa-lock"></i>
+						   <i><span class="tooltip" *ngIf="ngform.controls.password.invalid">
+							<svg    class="bi bi-info-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+								
+							</svg>
+						<span class="tooltiptext">password required</span>
+						</span></i>
            		   </div>
            		   <div class="div">
            		    	
-           		    	<input type="password" class="input" placeholder="password" name="password" [(ngModel)]="password">
+           		    	<input type="password" class="input" formControlName="password" placeholder="password" name="password" >
             	   </div>
-            	</div>
+				</div>
+
             	<a href="#">Forgot Password?</a>
-            	<input type="submit" class="btn" value="Login">
+            	<input type="submit" class="btn" value="Login" [disabled]="!ngform.valid">
             </form>
         </div>
     </div>
