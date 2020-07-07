@@ -11,11 +11,14 @@ import { Router } from '@angular/router';
 })
 export class MarkListComponent implements OnInit {
 
- marks: Observable<Mark[]>;
+ marks : Observable<Mark[]>;
 
 
   constructor(private markService: MarkService,
-    private router: Router) { }
+    private router: Router) {
+
+    	
+     }
 
   ngOnInit() {
   this.reloadData();
@@ -23,6 +26,9 @@ export class MarkListComponent implements OnInit {
 
   reloadData() {
    this.marks=this.markService.getMarksList();
+
+
+
       }
 
 
@@ -41,7 +47,7 @@ export class MarkListComponent implements OnInit {
   }
 
   updateMark(id: number){
-    this.router.navigate(['update', id]);
+    this.router.navigate(['updateMark',id]);
   }
 
 }

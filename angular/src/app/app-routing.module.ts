@@ -5,6 +5,8 @@ import { LoginComponent } from './login/login.component';
 import { CreateCarComponent } from './create-car/create-car.component';
 import { CreateMarkComponent } from './create-mark/create-mark.component';
 import { MarkListComponent } from './mark-list/mark-list.component';
+import { UpdateMarkComponent } from './update-mark/update-mark.component';
+
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -14,6 +16,7 @@ const routes: Routes = [
   {path: 'create-car', component: CreateCarComponent},
    {path: 'create-mark', component: CreateMarkComponent},
      {path: 'marks', component: MarkListComponent},
+     {path: 'updateMark/:id', component: UpdateMarkComponent},
 ];
 
 @NgModule({

@@ -5,9 +5,9 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class MarkService {
+export class CarService {
 
-  private baseUrl = 'http://localhost:8080/api/v1/marks';
+  private baseUrl = 'http://localhost:8080/api/v1/marks/voitures';
 
   constructor(private http: HttpClient) { }
 
@@ -15,8 +15,8 @@ export class MarkService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  createMark(mark: Object): Observable<Object> {
-    return this.http.post('http://localhost:8080/api/v1/marks', mark);
+  createCar(car: Object,markId:number): Observable<Object> {
+    return this.http.post(`${this.baseUrl}/${markId}`, car);
   }
 
   updateMark(id: number, value: any): Observable<Object> {

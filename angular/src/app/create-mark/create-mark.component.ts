@@ -39,7 +39,7 @@ mark: Mark = new Mark();
   }
 
   gotoList() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/marks']);
   }
 
 }
